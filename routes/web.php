@@ -16,10 +16,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [AuthenticationController::class, 'login']);
-Route::get('/forgot', [AuthenticationController::class, 'forgot']);
+Route::get('forgot', [AuthenticationController::class, 'forgot']);
 Route::post('login_post',[AuthenticationController::class,'login_post']);
 Route::post('forgot_post',[AuthenticationController::class,'forgot_post']);
+Route::get('reset/{token}',[AuthenticationController::class,'getReset']);
+Route::post('reset/{token}',[AuthenticationController::class,'postReset']);
 Route::group(['middleware' => 'admin'], function () {
     Route::get('/admin/dashboard', [DashboardController::class, 'dashboard']);
 });
 Route::get('logout',[AuthenticationController::class, 'logout']);
+ 
