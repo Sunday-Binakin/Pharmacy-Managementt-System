@@ -70,43 +70,43 @@ class AuthenticationController extends Controller
         return view('auth.reset', $data)->with('page_title', $page_title);;
 
     }
-    // public function postReset($token, ResetPasswordRequest $request)
-    // {
-    //     $page_title = 'reset password';
-    //     $user = User::where('remember_token', $token);
-    //     // if ($user->count() == 0) {
-    //     //     abort(403);
-    //     // }
-    //     if (!$user) {
-    //         abort(403);
-    //     }
-    //     //$user = $user->first();
-    //     $user->password = Hash::make($request->password);
-    //     $user->remember_token = Str::random(60);
-
-    //     $user->save();
-
-    //     return redirect('/')->with('success', 'Password reset Successfully')->with('page_title', $page_title);
-    // }
     public function postReset($token, ResetPasswordRequest $request)
-{
-    $page_title = 'reset password';
+    {
+        $page_title = 'reset password';
+        $user = User::where('remember_token', $token);
+        if ($user->count() == 0) { 
+            abort(403);
+        }
+        // if (!$user) {
+        //     abort(403);
+        // }
+        $user = $user->first();
+        $user->password = Hash::make($request->password);
+        $user->remember_token = Str::random(60);
 
-    // Correctly execute the query to find the user
-    $user = User::where('remember_token', $token)->first();
+        $user->save();
 
-    if (!$user) {
-        abort(403);
+        return redirect('/')->with('success', 'Password reset Successfully')->with('page_title', $page_title);
     }
+//     public function postReset($token, ResetPasswordRequest $request)
+// {
+//     $page_title = 'reset password';
 
-    // Update the user's password and remember token
-    $user->password = Hash::make($request->password);
-    $user->remember_token = Str::random(60);
+//     // Correctly execute the query to find the user
+//     $user = User::where('remember_token', $token)->first();
 
-    $user->save();
+//     if (!$user) {
+//         abort(403);
+//     }
 
-    return redirect('/')->with('success', 'Password reset Successfully')->with('page_title', $page_title);
-}
+//     // Update the user's password and remember token
+//     $user->password = Hash::make($request->password);
+//     $user->remember_token = Str::random(60);
+
+//     $user->save();
+
+//     return redirect('/')->with('success', 'Password reset Successfully')->with('page_title', $page_title);
+// }
 
     public function logout()
     {
