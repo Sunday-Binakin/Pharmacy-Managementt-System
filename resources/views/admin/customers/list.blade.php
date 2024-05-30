@@ -21,19 +21,30 @@
                             <th>Address</th>
                             <th>Doctor name</th>
                             <th> Doctor Address</th>
+                            <th> created At</th>
                             <th>Action</th>
                           </tr>
                         </thead>
                         <tbody>
+                            @foreach($records as   $value)
                           <tr>
-                            <td> 1</td>
-                            <td> 2</td>
-                            <td> 3</td>
-                            <td> 4</td>
-                            <td> 5</td>
-                            <td> 6</td>
-                            <td> 7</td>
+                            <td> {{ $value->id }}</td>
+                            <td> {{ $value-> name}}</td>
+                            <td> {{ $value-> contact_number}}</td>
+                            <td> {{ $value-> address}}</td>
+                            <td> {{ $value-> doctor_name}}</td>
+                            <td> {{ $value-> doctor_address}}</td>
+                            <td> {{ date('d-m-Y H:i:s',strtotime($value-> created_at))}}</td>
+                            <td>
+                                <a href="{{ url('admin/customers/edit/'.$value->id) }}" class="btn btn-success">
+                                    <i class="bi bi-pencil-square"></i><span> </span>
+                                  </a>
+                                  <a href="{{ url('admin/customers/delete/'.$value->id) }}" onclick="return confirm('Are you sure ?you want to delete')" class="btn btn-danger">
+                                    <i class="bi bi-trash"></i><span> </span>
+                                  </a>
+                            </td>
                           </tr>
+                          @endforeach
                         </tbody>
                       </table>
                 </div>

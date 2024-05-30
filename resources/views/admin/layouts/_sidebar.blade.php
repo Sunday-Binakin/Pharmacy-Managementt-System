@@ -17,6 +17,14 @@
                 <span>Customers</span>
             </a>
         </li><!-- End customers  Nav -->
+        <li class="nav-item">
+            <a class="nav-link @if (Request::segment(2) == 'customers') @else collapsed @endif"
+                href="{{ url('admin/medicines') }}">
+               <i class="fa-sharp fa-regular fa-capsules"></i>
+                <span>medicines</span>
+            </a>
+        </li>
+        <!-- End customers  Nav -->
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
