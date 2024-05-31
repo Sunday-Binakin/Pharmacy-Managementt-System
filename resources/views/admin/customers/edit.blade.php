@@ -10,7 +10,7 @@
             <div class="card">
                 @include('_message')
                 <div class="card-body">
-                    <h5 class="card-title">Add a new customer</h5>
+                    <h5 class="card-title">Edit customer</h5>
                     <form method="POST" action="{{ url('admin/customers/edit/'. $records->id) }}">
 
                         @csrf

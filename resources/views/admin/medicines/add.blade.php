@@ -6,59 +6,23 @@
 <section class="section">
     <div class="row">
         <div class="col-lg-12">
-            @include('_message')
+
             <div class="card">
+                @include('_message')
                 <div class="card-body">
-                    <h5 class="card-title">
-                        <a href="{{ url('admin/medicines/add') }}" class="btn btn-primary">Add Medicines</a>
-                    </h5>
+                    <div class="card-title">
+                        {{--  <h5 href="{{ url('admin/medicines/add') }}" class="btn btn-primary">Add Medicines</h5>  --}}
+                        <h5><strong>Add Medicines</strong></h5>
+                        @include('admin.medicines._form')
+                    </div>
+
+
                 </div>
-                <form method="POST"  action="">
-                    @csrf
-                    <div class="row mb-3">
-                        <label for="inputText" class="col-sm-2 col-form-label">Name<span style="color: red;">*</span></label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="name">
-                        </div>
-
-                    </div>
-                    <div class="row mb-3">
-                        <label for="inputText" class="col-sm-2 col-form-label">Name<span style="color: red;">*</span></label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="name">
-                        </div>
-
-                    </div>
-                    <div class="row mb-3">
-                        <label for="inputText" class="col-sm-2 col-form-label">Name<span style="color: red;">*</span></label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="name">
-                        </div>
-
-                    </div>
-                    <div class="row mb-3">
-                        <label for="inputText" class="col-sm-2 col-form-label">Name<span style="color: red;">*</span></label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="name">
-                        </div>
-
-                    </div>
-                    <div class="row mb-3">
-                        <label for="inputText" class="col-sm-2 col-form-label">Name<span style="color: red;">*</span></label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="name">
-                        </div>
-
-                    </div> <div class="row mb-3">
-                        <label for="inputText" class="col-sm-2 col-form-label">Name<span style="color: red;">*</span></label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="name">
-                        </div>
-
-                    </div>
-                </form>
             </div>
         </div>
+
     </div>
+
 </section>
 @endsection
+

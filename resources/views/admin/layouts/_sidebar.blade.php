@@ -20,11 +20,19 @@
         <li class="nav-item">
             <a class="nav-link @if (Request::segment(2) == 'customers') @else collapsed @endif"
                 href="{{ url('admin/medicines') }}">
-               <i class="fa-sharp fa-regular fa-capsules"></i>
-                <span>medicines</span>
+               <i class="bi bi-shop"></i>
+                <span>Medicines</span>
             </a>
         </li>
-        <!-- End customers  Nav -->
+        <!-- End medicines  Nav -->
+        <li class="nav-item">
+            <a class="nav-link @if (Request::segment(2) == 'customers') @else collapsed @endif"
+                href="{{ url('admin/medicines_stock') }}">
+               <i class="bi bi-archive"></i>
+                <span>Medicines Stock</span>
+            </a>
+        </li>
+        <!-- End medicines stock Nav -->
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
